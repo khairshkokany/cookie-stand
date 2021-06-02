@@ -43,7 +43,7 @@ City.prototype.getRandomCust=function(){
     // this.randomCust=(randomNumber(this.min,this.max));
     this.randomCust.push(randomNumber(this.min,this.max));
   }
-}
+};
 
 
 City.prototype.getAvgCookies=function () {
@@ -55,20 +55,21 @@ City.prototype.getAvgCookies=function () {
     // this.sum.push();
   }
   // console.log(this.avgCookie);
-}
+  // console.log(this.avgCookie);
+};
 
 
 
 
-let parent = document.getElementById('salmonProject');
+let parents = document.getElementById('salmonProject');
 
 let mainElement = document.createElement('main');
 
-parent.appendChild(mainElement);
+parents.appendChild(mainElement);
 
 
 let table = document.createElement('table');
-parent.appendChild(table);
+parents.appendChild(table);
 // tableElement.textContent = seattle.name ;
 function header() {
 
@@ -89,6 +90,7 @@ function header() {
 // console.log(header);
 
 
+
 // // seattle.sum();
 City.prototype.render=function(){
   let cityElement=document.createElement('tr');
@@ -100,14 +102,15 @@ City.prototype.render=function(){
   for (let i = 0; i < hours.length; i++) {
     let noElement=document.createElement('td');
     cityElement.appendChild(noElement);
-    noElement.textContent = this.randomCust[i];
+    noElement.textContent = this.avgCookie[i];
   }
-  console.log(this.randomCust);
+  // console.log(this.randomCust);
   let totalTd=document.createElement('td');
   cityElement.appendChild(totalTd);
   totalTd.textContent = this.sum;
-}
-console.log(this.sum);
+  console.log(this.sum);
+};
+// console.log(this.sum);
 
 function footer() {
   let lastrow=document.createElement('tr');
@@ -123,19 +126,22 @@ function footer() {
   for (let i = 0; i < hours.length; i++) {
 
     let totalPer=0;
-    for (let j = 0; j < 5; j++) {
+    for (let j = 0; j < city.length; j++) {
 
       totalPer+=city[j].avgCookie[i];
+      // console.log(totalPer);
       dailyTotal+=city[j].avgCookie[i];
 
     }
-    console.log(totalPer);
+    // console.log(totalPer);
     let thelemnt=document.createElement('th');
     lastrow.appendChild(thelemnt);
     thelemnt.textContent=totalPer;
     // console.log(totalPer);
     // dailyTotal=dailyTotal+totalPer;
+
   }
+
   let lastElement = document.createElement('th');
   lastrow.appendChild(lastElement);
   lastElement.textContent=dailyTotal;
@@ -147,21 +153,92 @@ let tokyo = new City('Tokyo',3,24,1.2);
 let dubai = new City('Dubai',11,38,3.7);
 let paris = new City('Paris',20,38,2.3);
 let lima = new City('Lima',2,16,4.6);
+
+
+
+ 
+
+
 header();
 
+
 for (let i = 0; i < city.length; i++) {
-  // eslint-disable-next-line indent
-      city[i].getRandomCust();
+  city[i].getRandomCust();
   city[i].getAvgCookies();
   city[i].render();
-  // console.log(city[i].getrandomCust);
-  // console.log(city[i].getavgCookie);
+
+
+
+}
+
+footer();
+// ----------------------------------------lab 9 ----------------------------------------------------------
+
+
+let cityForm=document.getElementById('cityForm');
+
+cityForm.addEventListener('submit',submitter);
+
+
+function submitter(event) {
+
+  event.preventDefault();
+
+  // console.log(event);
+
+  let newCitySub=event.target.location.value;
+
+  console.log(newCitySub);
+  let minSub=event.target.minumim.value;
+  // console.log(minumim);
+  let maxSub=event.target.maximum.value;
+  // console.log(maximum);
+  let avgSub=event.target.average.value;
+
+  // console.log(average);
+
+
+  let addCity=new City(newCitySub,minSub,maxSub,avgSub);
+
+
+
+
+
+  // console.log(addCity);
+
+  table.removeChild(table.lastChild);
+
+
+
+  addCity.getRandomCust();
+  addCity.getAvgCookies();
+  addCity.render();
+
+  footer();
+
+  document.getElementById('cityForm').reset();
 }
 
 
 
 
-footer();
+
+
+
+
+
+
+
+
+
+
+
+// footer();
+
+
+
+
+
 
 // console.log(seattle);
 // console.log(tokyo);
