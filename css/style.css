@@ -1,6 +1,74 @@
+
+
+body {
+
+background-image: url(/img/nostalgic_blue_background_06_hd_pictures_169782.jpg);
+background-repeat: no-repeat;
+
+background-size: cover;
+}
+
+
+
 table , tr, th,td {
 
     border-style : solid   ;
     text-align: center;
     /* border-collapse: collapse; */
+ color: rgb(0, 255, 234);
+    font-family: 'Stint Ultra Condensed', cursive;
+}
+
+h3 {
+
+
+    font-family: 'ZCOOL KuaiLe', cursive;
+    color: bisque;
+}
+
+
+.data{
+
+
+    font-family: 'Trebuchet MS', sans-serif;
+color: brown;
+}
+
+
+.text {
+
+
+    font-family: Garamond, serif;
+    color: rgb(180, 113, 37);
+}
+
+
+#img{
+
+box-sizing: border-box;
+display: flex;
+margin-top: 50px;
+}
+
+
+.link{
+
+background-color: white;
+
+background-size: 30px;
+text-decoration-line: none;
+color: red;
+margin-bottom: 50px;
+}
+
+.images{
+
+padding-right: 50px;
+
+}
+
+#cityForm{
+
+color: white;
+
 }

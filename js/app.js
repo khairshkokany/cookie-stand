@@ -138,7 +138,7 @@ function footer() {
     lastrow.appendChild(thelemnt);
     thelemnt.textContent=totalPer;
     // console.log(totalPer);
-    // dailyTotal=dailyTotal+totalPer;
+    dailyTotal=dailyTotal+totalPer;
 
   }
 
